@@ -1,0 +1,269 @@
+3. STRUCTURE DES FICHIERS(h,cpp,main): 
+
+Pour organiser le projet, on utilise : 
+
+ Animal.h et Animal.cpp pour la classe Animal.  
+
+AnimalExotique.h et AnimalExotique.cpp pour la classe dérivée. 
+
+ Enclos.h et Enclos.cpp pour la gestion des enclos.  
+
+ main.cpp pour tester l'ensemble du programme. 
+
+ 
+
+Pour fichier Animal.h : 
+
+ - C'est un fichier d'en-tête qui déclare la classe Animal. Il définit les attributs et les méthodes publiques pour gérer un animal.  
+
+- Cela empêche d'inclure le fichier plusieurs fois dans le même programme. 
+
+- Cela permet de créer et gérer des objets Animal dans un programme. 
+
+Pour fichier Animal.cpp : 
+
+Ce fichier implémente les méthodes déclarées dans Animal.h. 
+
+Le fichier Animal.cpp joue un rôle fondamental dans l’implémentation de la classe Animal. Il contient les définitions des méthodes déclarées dans le fichier d'en-tête Animal.h. Grâce à cette séparation, le code devient plus organisé, lisible et maintenable. 
+
+Pour fichier AnimalExotique.h : 
+
+C'est un fichier d'en-tête pour la classe dérivée AnimalExotique, qui hérite publiquement de Animal. La classe AnimalExotique est une extension de la classe Animal avec :  
+
+• Deux nouveaux attributs : origine et alimentation.  
+
+• Un constructeur pour initialiser toutes les valeurs (nom, âge, origine, alimentation).  
+
+• Getters et setters pour accéder et modifier origine et alimentation.  
+
+• Une méthode afficher pour montrer les informations complètes de l'animal exotique. 
+
+ Cela permet de gérer des animaux exotiques avec des informations supplémentaires tout en réutilisant la classe Animal. 
+
+ 
+
+Pour fichier AnimalExotique.cpp : 
+
+Ce fichier implémente les méthodes définies dans AnimalExotique.h. 
+
+Initialise les attributs avec une liste d'initialisation et appelle le constructeur de la classe Animal.  
+
+ Getters et Setters : Retourne ou modifie les attributs origine et alimentation. 
+
+  Méthode d'affichage : Utilise Animal::afficher() pour afficher les informations de la classe mère et ajoute des détails sur origine et alimentation. 
+
+ 
+
+Pour fichier enclos.h : 
+
+ 
+
+La classe Enclos est conçue pour gérer une collection d'animaux grâce à un vecteur. 
+
+ Elle contient les fonctionnalités suivantes :  
+
+ Ajouter un animal dans l'enclos.  
+
+ Accéder à un animal avec un indice grâce à l'opérateur [].  
+
+ Obtenir le nombre total d'animaux présents dans l'enclos. 
+
+ Afficher les informations de tous les animaux.  
+
+C'est une classe simple qui facilite la gestion d'une liste dynamique d'animaux dans un programme. 
+
+ 
+
+Pour fichier enclos.cpp : 
+
+ 
+
+Ce code permet de gérer un groupe d'animaux grâce à un vecteur dynamique. 
+
+ Il offre des fonctionnalités pratiques pour :  
+
+ Ajouter des animaux,  
+
+Accéder à un animal par son indice, 
+
+ Connaître le nombre total d'animaux,  
+
+ Afficher les informations des animaux. 
+
+ Il utilise des concepts simples de la programmation orientée objet (POO) et du C++ comme l'héritage, les vecteurs et la surcharge d'opérateur. 
+
+ 
+
+ 
+
+Pour fichier main.cpp : 
+
+Le fichier main teste toutes les fonctionnalités. 
+
+Les objectifs spécifiques du fichier main.cpp sont les suivants : 
+
+Créer des objets : 
+
+Créer des instances de la classe Animal pour représenter des animaux classiques. 
+
+Créer des instances de la classe AnimalExotique pour représenter des animaux avec des caractéristiques spécifiques. 
+
+Gérer les enclos : 
+
+Ajouter des animaux dans des enclos. 
+
+Afficher les informations des animaux présents dans chaque enclos. 
+
+Permettre l'accès à un animal spécifique grâce à la surcharge de l'opérateur []. 
+
+Interaction utilisateur : 
+
+Mettre en place un menu interactif permettant à l'utilisateur d'effectuer des actions comme : 
+
+Ajouter un animal ou un animal exotique. 
+
+Afficher les informations des animaux. 
+
+Consulter le nombre total d'animaux dans chaque enclos. 
+
+Quitter le programme proprement. 
+
+Contrôle des saisies : 
+
+Assurer la validité des entrées utilisateur (par exemple, contrôle de l'âge ou des saisies invalides). 
+
+Affichage des résultats : 
+
+Présenter clairement les informations des animaux et les actions réalisées grâce à des messages appropriés. 
+
+3.1 LES INSTRUCTIONS/ATTRIBUTS/METHODES  
+
+Pour fichier Animal.h : 
+
+Constructeur: Initialise les attributs nom et age. 
+
+Getters :  
+
+string getNom() const : Retourne le nom de l'animal. 
+
+int getAge() const : Retourne l'âge de l'animal. 
+
+Méthode d'affichage :  
+
+void afficher() const : Affiche les informations de l'animal. 
+
+Pour fichier Animal.cpp : 
+
+Constructeur: Initialise les attributs avec une liste d’initialisation. 
+
+Getters : meme role dans Fichier Animal.h 
+
+Méthode d'affichage :  
+
+void Animal::afficher() const : Affiche les valeurs des attributs nom et age. 
+
+Pour fichier AnimalExotique.h:                                                                                                                    
+
+Les attributs sont privés : 
+
+string origine : L’origine géographique de l’animal exotique. 
+
+string alimentation : Le type d’alimentation (herbivore, carnivore, etc.). 
+
+Constructeur : 
+
+Initialise les attributs hérités (nom, age) ainsi que les nouveaux attributs (origine et alimentation). 
+
+Getters : 
+
+string getOrigine() const; : Retourne l’origine géographique. 
+
+string getAlimentation() const; : Retourne le type d’alimentation. 
+
+Setters : 
+
+void setOrigine(const std::string& nouvelleOrigine); : Modifie l’attribut origine. 
+
+void setAlimentation(const std::string& nouvelleAlimentation); : Modifie l’attribut alimentation. 
+
+ 
+
+Méthode afficher : 
+
+void afficher() const: Redéfinit la méthode afficher pour inclure les attributs origine et alimentation en plus des attributs hérités. 
+
+Pour fichier AnimalExotique.cpp:    
+
+Ce fichier contient l’implémentation des méthodes déclarées dans AnimalExotique.h. 
+
+Rôle global de AnimalExotique.cpp 
+
+Implémente les fonctionnalités de la classe AnimalExotique. 
+
+Assure une spécialisation claire des animaux exotiques tout en réutilisant le code existant grâce à l’héritage. 
+
+ 
+
+-  Pour fichier Enclos.h:   
+
+vector<Animal> animaux : Conteneur dynamique pour stocker les objets Animal dans l’enclos. 
+
+Constructeur : Initialise un enclos vide. 
+
+void ajouterAnimal(const Animal& animal): Ajoute un animal au vecteur animaux. 
+
+Surcharge de l’opérateur [] : Permet d’accéder à un animal par son indice dans le vecteur. 
+
+Obtenir le nombre d'animaux ( int getNombreAnimaux() const): Retourne le nombre total d’animaux dans l’enclos. 
+
+Afficher les animaux (void afficherAnimaux() const) : Parcourt le vecteur et affiche chaque animal. 
+
+-  Pour fichier Enclos.cpp:   
+
+Ce fichier implémente les méthodes de Enclos.h. 
+
+Rôle global de Enclos.cpp 
+
+Implémente la gestion dynamique des animaux dans un enclos. 
+
+Facilite l’accès, le comptage et l’affichage des animaux 
+
+-  Pour fichier main.cpp: 
+
+Le fichier main.cpp utilise les méthodes publiques des classes suivantes : 
+
+a. Méthodes de la classe Animal 
+
+getNom(), getAge(), setNom(), setAge() et afficher(). 
+
+b. Méthodes de la classe AnimalExotique 
+
+getOrigine(), getAlimentation() et la méthode redéfinie afficher(). 
+
+c. Méthodes de la classe Enclos 
+
+ajouterAnimal() : Ajouter un animal à l’enclos. 
+
+operator[] : Accéder à un animal par son indice. 
+
+getNombreAnimaux() : Retourner le nombre total d’animaux. 
+
+afficherAnimaux() : Afficher tous les animaux dans l'enclos. 
+
+Fonctionnement global du programme 
+
+L'utilisateur choisit une action dans le menu interactif. 
+
+Création des animaux : L'utilisateur entre les informations pour un Animal ou AnimalExotique. 
+
+Ajout dans des enclos : Les animaux créés sont ajoutés dans un enclos (enclos1 ou enclos2). 
+
+Affichage des informations : Les informations des animaux sont affichées via la méthode afficher(). 
+
+Accès direct : L’utilisateur peut accéder à un animal spécifique grâce à la surcharge de l’opérateur []. 
+
+Comptage des animaux :Le nombre total d’animaux est affiché avec getNombreAnimaux(). 
+
+Quitter : L'utilisateur peut quitter proprement le programme. 
+
+ 
